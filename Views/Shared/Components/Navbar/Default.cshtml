@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<WebApplication1.Models.Category>
+
+<!-- NAVIGATION -->
+<nav id="navigation">
+	<!--Đây là phần của trang web chứa các liên kết điều hướng chính.-->
+	<!--Được đặt trong một thẻ <nav> với id="navigation" để xác định phần này là thanh điều hướng.-->
+	<!-- container -->
+	<div class="container">
+		<!--Thẻ <div> có class container để giới hạn chiều rộng của nội dung trong thanh điều hướng.-->
+		<!-- responsive-nav -->
+		<div id="responsive-nav">
+			<!--Đây là phần được sử dụng để tạo menu điều hướng phản hồi (responsive navigation),
+			có nghĩa là menu sẽ thay đổi kiểu dáng hoặc hiển thị khác nhau trên các thiết bị khác nhau (ví dụ: điện thoại di động).-->
+			<!-- NAV -->
+			<ul class="main-nav nav navbar-nav">
+				<!--Đây là danh sách các liên kết điều hướng chính được hiển thị trong thanh điều hướng.-->
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Hot Deals</a></li>
+				<li><a href="#">Categories</a></li>
+				@foreach (var item in Model)
+				{
+					<li><a href="#">@item.Name</a></li>
+				}
+				<!--Trong đoạn mã bạn đưa ra, bạn đang sử dụng vòng lặp foreach trong một tệp Razor để tạo các mục danh sách 
+				<li> dựa trên một danh sách Model được truyền vào từ controller. Mỗi mục danh sách <li> 
+				sẽ hiển thị tên của từng item trong danh sách Model.-->
+			</ul>
+			<!-- /NAV -->
+
+		</div>
+		<!-- /responsive-nav -->
+	</div>
+	<!-- /container -->
+</nav>
+<!-- /NAVIGATION -->
+<!--Đoạn mã HTML mà bạn cung cấp định nghĩa một phần của thanh điều hướng (navigation bar) trên trang web-->
+<!--Đoạn mã này định nghĩa một thanh điều hướng đơn giản trên trang web, hiển thị các liên kết điều hướng chính cho các mục như Trang chủ, Các Ưu đãi nóng,
+Danh mục, Laptop, Điện thoại thông minh, Máy ảnh và Phụ kiện. Tuy nhiên, để nó hoạt động và chuyển hướng đến các trang thích hợp, các giá trị href của từng liên kết
+cần được cập nhật để trỏ đến các URL tương ứng của trang web.-->

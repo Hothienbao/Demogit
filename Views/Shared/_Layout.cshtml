@@ -35,22 +35,32 @@
     <![endif]-->
 </head>
 <body>
+	<!-- HEADER -->
 	<header>
 		<!-- TOP HEADER -->
 		<div id="top-header">
+			<!--Các thành phần trong #top-header-->
+
 			<div class="container">
 				<ul class="header-links pull-left">
 					<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
 					<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
 					<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
 				</ul>
+				<!--Một danh sách các liên kết bên trái (<ul class="header-links pull-left">) chứa thông tin liên hệ như số điện thoại, email và địa chỉ. -->
+
 				<ul class="header-links pull-right">
 					<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
 					<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
 				</ul>
-			</div>
+				<!--Một danh sách các liên kết bên phải (<ul class="header-links pull-right">) chứa các liên kết liên quan đến ngôn ngữ và tài khoản người dùng.-->
+			
+				</div>
 		</div>
 		<!-- /TOP HEADER -->
+		<!--Đây là phần đầu của trang web, thường chứa các liên kết quan trọng như thông tin liên hệ. -->
+
+
 		<!-- MAIN HEADER -->
 		<div id="header">
 			<!-- container -->
@@ -152,49 +162,57 @@
 			<!-- container -->
 		</div>
 		<!-- /MAIN HEADER -->
+		<!--Đây là phần chính của header trên trang web, thường chứa logo, thanh tìm kiếm và các liên kết quan trọng khác.-->
 	</header>
 	<!-- /HEADER -->
+	<!--Mã HTML mà bạn cung cấp là một phần của giao diện người dùng (UI) của một trang web. -->
+	<!--Đoạn mã HTML này đại diện cho một header trang web thương mại điện tử cơ bản, bao gồm các phần quan trọng như thông tin liên hệ, logo, thanh tìm kiếm, giỏ hàng và các liên kết tài khoản. 
+	Các biểu tượng và hiệu ứng được sử dụng để cải thiện trải nghiệm người dùng và cung cấp tính năng tương tác trực quan.-->
+
+
 	<!-- NAVIGATION -->
-	<nav id="navigation">
-		<!-- container -->
-		<div class="container">
-			<!-- responsive-nav -->
-			<div id="responsive-nav">
-				<!-- NAV -->
-				<ul class="main-nav nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">Hot Deals</a></li>
-					<li><a href="#">Categories</a></li>
-					<li><a href="#">Laptops</a></li>
-					<li><a href="#">Smartphones</a></li>
-					<li><a href="#">Cameras</a></li>
-					<li><a href="#">Accessories</a></li>
-				</ul>
-				<!-- /NAV -->
-			</div>
-			<!-- /responsive-nav -->
-		</div>
-		<!-- /container -->
-	</nav>
+		@await Component.InvokeAsync("Navbar");
 	<!-- /NAVIGATION -->
-	
+	<!--Khi await Component.InvokeAsync("Navbar") được gọi trong tệp Razor view, ASP.NET Core sẽ tìm và triển khai component "Navbar", 
+	thực hiện logic trong InvokeAsync(), và render view _Navbar.cshtml để nhúng vào tệp view gọi component này.-->
+
+
 	<!-- SECTION -->
 	<div class="section">
+		<!--Đây là một phần của trang web để nhóm các nội dung liên quan lại với nhau.
+		Được định nghĩa trong một thẻ <div> với class section để định dạng và căn chỉnh nội dung bên trong.-->
+
 		<!-- container -->
 		<div class="container">
+			<!--Thẻ <div> có class container để giới hạn chiều rộng của nội dung trong phần SECTION-->
+
 			<!-- row -->
 			<div class="row">
+				<!--Thẻ <div> với class row để chứa các cột (columns) và phân chia nội dung theo các hàng (rows) trong lưới (grid system).-->
 
 				<!-- section title -->
 				<div class="col-md-12">
 					<div class="section-title">
+						<!--Phần này chứa tiêu đề của danh mục sản phẩm mới.
+							Sử dụng class section-title để định dạng tiêu đề và căn chỉnh nội dung bên trong.-->
+
 						<h3 class="title">New Products</h3>
+						<!--Tiêu đề được đặt trong thẻ <h3 class="title">.-->
+
 						<div class="section-nav">
+							<!--Phần này chứa thanh điều hướng cho các danh mục sản phẩm, cho phép người dùng chuyển đổi giữa các danh mục khác nhau.
+								Sử dụng class section-nav để định dạng và căn chỉnh nội dung bên trong.-->
+
 							<ul class="section-tab-nav tab-nav">
+								<!--Các danh mục được đưa vào một danh sách <ul> có class section-tab-nav tab-nav.-->
+
 								<li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
 								<li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
 								<li><a data-toggle="tab" href="#tab1">Cameras</a></li>
 								<li><a data-toggle="tab" href="#tab1">Accessories</a></li>
+								<!--Mỗi mục trong danh sách là một liên kết <a> để chuyển đổi giữa các tab danh mục sản phẩm.
+								Sử dụng thuộc tính data-toggle="tab" để kích hoạt chức năng chuyển đổi tab.
+								Thuộc tính href chỉ định id của tab tương ứng để hiển thị nội dung của danh mục.-->
 							</ul>
 						</div>
 					</div>
@@ -202,8 +220,13 @@
 				<!-- /section title -->
 				<!-- Products tab & slick -->
 				<div class="col-md-12">
+					<!--Phần này chứa nội dung danh mục sản phẩm, bao gồm danh sách các sản phẩm.
+						Sử dụng class col-md-12 để phân bổ toàn bộ chiều rộng của cột cho nội dung danh mục.
+						Thực hiện render nội dung sản phẩm trong một <div class="row"> bên trong.-->
 					<div class="row">
 						@RenderBody()
+						<!--Trong một môi trường Razor (ASP.NET), RenderBody() được sử dụng để render nội dung của trang con (child view) vào vị trí này.
+							Nội dung này có thể là danh sách sản phẩm mới theo danh mục được truyền vào từ một trang Razor khác.-->
 					</div>
 				</div>
 				<!-- Products tab & slick -->
@@ -213,15 +236,28 @@
 		<!-- /container -->
 	</div>
 	<!-- /SECTION -->
-	
+	<!--Đoạn mã HTML mà bạn cung cấp định nghĩa một phần của trang web để hiển thị danh sách các sản phẩm mới theo từng danh mục-->
+	<!--Đoạn mã này định nghĩa một phần của trang web để hiển thị danh sách các sản phẩm mới theo từng danh mục khác nhau. 
+	Người dùng có thể chuyển đổi giữa các danh mục bằng cách nhấp vào các tab trên thanh điều hướng.
+	Nội dung sản phẩm mới được hiển thị tương ứng với danh mục được chọn.-->
+
+
 	<!-- FOOTER -->
 	<footer id="footer">
 		<!-- top footer -->
+		<!--Phần này chứa thông tin cơ bản về công ty và liên hệ.
+		Được định nghĩa trong <div class="section">.-->
+
 		<div class="section">
 			<!-- container -->
 			<div class="container">
 				<!-- row -->
 				<div class="row">
+					<!--Các cột thông tin (col-md-3):
+						About Us: Thông tin về công ty.
+						Categories: Danh sách các danh mục sản phẩm.
+						Information: Thông tin hữu ích như về chúng tôi, liên hệ, chính sách bảo mật, đơn hàng và điều khoản sử dụng.
+						Service: Các dịch vụ khách hàng như tài khoản của tôi, giỏ hàng, danh sách mong muốn (wishlist), theo dõi đơn hàng và trợ giúp.-->
 					<div class="col-md-3 col-xs-6">
 						<div class="footer">
 							<h3 class="footer-title">About Us</h3>
@@ -280,13 +316,17 @@
 			<!-- /container -->
 		</div>
 		<!-- /top footer -->
+
 		<!-- bottom footer -->
 		<div id="bottom-footer" class="section">
+			<!--Phần này chứa thanh thanh toán và thông tin bản quyền.
+			Được định nghĩa trong <div id="bottom-footer" class="section">.-->
 			<div class="container">
 				<!-- row -->
 				<div class="row">
 					<div class="col-md-12 text-center">
 						<ul class="footer-payments">
+							<!--Hiển thị các biểu tượng thanh toán (Visa, Mastercard, PayPal, v.v.) cho phép khách hàng biết các phương thức thanh toán được chấp nhận.-->
 							<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
 							<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
 							<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
@@ -295,6 +335,9 @@
 							<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
 						</ul>
 						<span class="copyright">
+							<!--Hiển thị thông tin bản quyền về template và người tạo.
+							Hiển thị năm hiện tại bằng cách sử dụng JavaScript (<script>document.write(new Date().getFullYear());</script>).
+							Đường dẫn trở lại Colorlib để giữ bản quyền (<a href="https://colorlib.com" target="_blank">Colorlib</a>).-->
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 							Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -307,14 +350,32 @@
 		</div>
 		<!-- /bottom footer -->
 	</footer>
-	<!--JQuery Plugins-->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/slick.min.js"></script>
-    <script src="/js/nouislider.min.js"></script>
-    <script src="/js/jquery.zoom.min.js"></script>
-    <script src="/js/main.js"></script>
+	<!-- /FOOTER -->
+	<!--Đoạn mã HTML mà bạn cung cấp định nghĩa phần footer của trang web, bao gồm các thông tin về công ty, danh mục, thông tin hữu ích và thanh toán, 
+	cùng với bản quyền và thông tin về người tạo template.-->
+	<!--Đoạn mã này xây dựng một footer đơn giản nhưng đầy đủ thông tin cần thiết cho một trang web thương mại điện tử, bao gồm thông tin về công ty, danh mục sản phẩm, thông tin hữu ích 
+	và các phương thức thanh toán. Ngoài ra, footer cũng cung cấp thông tin bản quyền về template và người tạo.-->
 
+
+	<!--JQuery Plugins-->
+    <script src="/js/jquery.min.js"></script> 
+	<!--jquery.min.js: Thư viện jQuery cơ bản.-->
+    <script src="/js/bootstrap.min.js"></script>
+	<!--bootstrap.min.js: Thư viện Bootstrap JavaScript, hỗ trợ các thành phần giao diện người dùng (UI) của Bootstrap.-->
+    <script src="/js/slick.min.js"></script>
+	<!--slick.min.js: Thư viện Slick Carousel, được sử dụng để tạo các carousel trượt (slideshow).-->
+    <script src="/js/nouislider.min.js"></script>
+	<!--nouislider.min.js: Thư viện NoUI Slider, dùng để tạo các thanh trượt tùy chỉnh.-->
+    <script src="/js/jquery.zoom.min.js"></script>
+	<!--jquery.zoom.min.js: Thư viện jQuery Zoom, cho phép phóng to hình ảnh khi rê chuột.-->
+    <script src="/js/main.js"></script>
+	<!--main.js: Tập lệnh chính của trang web, chứa các tập lệnh JavaScript tùy chỉnh để điều khiển hành vi của trang.-->
+	<!--/JQuery Plugins-->
     @await RenderSectionAsync("Scripts", required: false)
+	<!--Đoạn mã này sử dụng await RenderSectionAsync("Scripts", required: false) để tải các tập lệnh JavaScript từ một Section trong trang Razor của bạn (ví dụ: _Layout.cshtml).
+	Section được gọi là "Scripts" và có thể được định nghĩa trong các trang Razor con để tải các tập lệnh JavaScript đặc biệt chỉ dành riêng cho từng trang.-->
+	<!--Đoạn mã HTML mà bạn cung cấp là một phần của trang web và bao gồm các tập lệnh JavaScript để sử dụng các plugin jQuery khác nhau và tập lệnh chính của trang web-->
+	<!--Đoạn mã HTML này định nghĩa các tập lệnh JavaScript cần thiết để hoạt động các plugin jQuery và chức năng chính của trang web. 
+	Ngoài ra, đoạn mã sử dụng RenderSectionAsync để cho phép trang Razor con tải các tập lệnh JavaScript tùy chỉnh. Các tập lệnh này làm cho trang web của bạn trở nên tương tác và đáp ứng tốt hơn.-->
 </body>
 </html>

@@ -250,3 +250,4 @@ D:\visualStudioMicrosoft\WebApplication1\bin\Debug\net8.0\runtimes\win\lib\net7.
 D:\visualStudioMicrosoft\WebApplication1\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 D:\visualStudioMicrosoft\WebApplication1\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 D:\visualStudioMicrosoft\WebApplication1\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+D:\visualStudioMicrosoft\WebApplication1\obj\Debug\net8.0\WebApplication1.sourcelink.json
