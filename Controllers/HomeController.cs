@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using WebApplication1.Data;
 using WebApplication1.Models;
@@ -16,7 +17,7 @@ namespace WebApplication1.Controllers
 
 		public IActionResult Index()
         {
-            return View(_context.Product.ToList());
+            return View(_context.Product.Include(p => p.Category).ToList());
         }
 
         public IActionResult Privacy()

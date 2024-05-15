@@ -25,9 +25,15 @@ namespace WebApplication1.Controllers
             var webApplication1Context = _context.Product.Include(p => p.Category);
             return View(await webApplication1Context.ToListAsync());
         }
+        [HttpPost]
+		public async Task<IActionResult> Index()
+		{
+			var webApplication1Context = _context.Product.Include(p => p.Category);
+			return View(await webApplication1Context.ToListAsync());
+		}
 
-        // GET: Products/Details/5
-        public async Task<IActionResult> Details(int? id)
+		// GET: Products/Details/5
+		public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
