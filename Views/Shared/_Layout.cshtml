@@ -50,8 +50,13 @@
 				<!--Một danh sách các liên kết bên trái (<ul class="header-links pull-left">) chứa thông tin liên hệ như số điện thoại, email và địa chỉ. -->
 
 				<ul class="header-links pull-right">
-					<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-					<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+					@if(User.Identity.IsAuthenticated && User.IsInRole("Ad"))
+					{
+						<li><a href="/Products/Create"><i class="fa fa-dollar"></i> Quan Ly</a></li>
+					}
+					
+					<li><a href="/Users/Login"><i class="fa fa-user-o"></i> My Account</a></li>
+					<li><a href="/Users/Logout"><i class="fa fa-user-o"></i> Thoat</a></li>
 				</ul>
 				<!--Một danh sách các liên kết bên phải (<ul class="header-links pull-right">) chứa các liên kết liên quan đến ngôn ngữ và tài khoản người dùng.-->
 			

@@ -22,15 +22,15 @@
 			<!-- SEARCH BAR -->
 			<div class="col-md-6">
 				<div class="header-search">
-					<form asp-controller="Products">
-						<select class="input-select">
+					<form asp-controller="Products" asp-action="Index">
+						<select name="catid" class="input-select">
 							<option value="0">Tat ca</option>
 							@foreach (var item in Model)
 							{
 								<option value="@item.Id">@item.Name</option>
 							}
 						</select>
-						<input class="input" placeholder="Search here">
+						<input class="input" name="keywords" placeholder="Search here">
 						<button class="search-btn">Search</button>
 					</form>
 				</div>

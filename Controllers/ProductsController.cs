@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -26,9 +27,9 @@ namespace WebApplication1.Controllers
             return View(await webApplication1Context.ToListAsync());
         }
         [HttpPost]
-		public async Task<IActionResult> Index()
+		public async Task<IActionResult> Index(int catid, string keywords)
 		{
-			var webApplication1Context = _context.Product.Include(p => p.Category);
+			var webApplication1Context = _context.Product.Include(p => p.Category).Where(p => p.Name.Contains(keywords) && p.CategoryId==catid);
 			return View(await webApplication1Context.ToListAsync());
 		}
 
@@ -52,6 +53,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Products/Create
+        [Authorize(Roles = "Ad")]
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Category, "Id", "Name");
@@ -63,6 +65,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Ad")]
         public async Task<IActionResult> Create([Bind("Id,Name,Description,ImageUrl,Price,Quantity,CategoryId")] Product product)
         {
             if (ModelState.IsValid)
@@ -76,6 +79,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Products/Edit/5
+        [Authorize(Roles = "Ad")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -97,6 +101,7 @@ namespace WebApplication1.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Ad")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,ImageUrl,Price,Quantity,CategoryId")] Product product)
         {
             if (id != product.Id)
@@ -129,6 +134,7 @@ namespace WebApplication1.Controllers
         }
 
         // GET: Products/Delete/5
+        [Authorize(Roles = "Ad")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -150,6 +156,7 @@ namespace WebApplication1.Controllers
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Ad")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await _context.Product.FindAsync(id);

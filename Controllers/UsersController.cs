@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +46,39 @@ namespace WebApplication1.Controllers
             return View(user);
         }
 
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync();
+            return View("Login");
+        }
+
+        [HttpPost]
+        public IActionResult Login(string name, string password)
+        {
+            var user = _context.User.Where(u => u.Name == name && u.Password == password).FirstOrDefault<User>();
+            if (user == null || _context.User == null)
+            {
+                return View();
+            }
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.Name),
+                new Claim(ClaimTypes.Role, user.Role),
+            };
+            var claimsIdentity = new ClaimsIdentity(
+           claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.SignInAsync(
+            CookieAuthenticationDefaults.AuthenticationScheme,
+            new ClaimsPrincipal(claimsIdentity)
+            );
+            return RedirectToAction("Index","Home");
+        }
+
         // GET: Users/Create
         public IActionResult Create()
         {
@@ -68,7 +104,7 @@ namespace WebApplication1.Controllers
         // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
+            if (id == null || _context.User == null)
             {
                 return NotFound();
             }
